@@ -15,6 +15,7 @@ public class TowerBuilder : MonoBehaviour
     
     public Vector3 BeamScale =>
             new Vector3(1, (_levelCount + _additionalScale) / 2f + _startAndFinishAdditionalScale, 1);
+    
     private void Start()
     {
         Build();
