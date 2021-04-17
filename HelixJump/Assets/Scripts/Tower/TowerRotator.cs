@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class TowerRotator : MonoBehaviour
 {
     [SerializeField] private float _rotateSpeed;
 
     private Rigidbody _rigidbody;
-    
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
-        
+    
     void Update()
     {
         if (Input.touchCount > 0)
@@ -23,6 +22,10 @@ public class TowerRotator : MonoBehaviour
                 var torque = -touch.deltaPosition.x * _rotateSpeed * Time.deltaTime;
                 _rigidbody.AddTorque(Vector3.up * torque);
             }
+        }
+        else
+        {
+            _rigidbody.angularVelocity = Vector3.zero;
         }
     }
 }
