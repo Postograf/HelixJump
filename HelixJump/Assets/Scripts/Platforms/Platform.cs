@@ -8,7 +8,7 @@ public class Platform : MonoBehaviour
     public void Break()
     {
         var segments = GetComponentsInChildren<PlatformSegment>();
-
+        
         foreach (var segment in segments)
         {
             segment.Bounce(_bounceForce, transform.position, _bounceRadius);
